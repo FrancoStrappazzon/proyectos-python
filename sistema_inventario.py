@@ -58,15 +58,53 @@ def menu():
         
         else:  
             print("Opcion invalida, intente de nuevo ")  
-            
+   
+#Me fijo si alcanza la cantidad de producto que tengo en stock         
 def confirmar_stock(pedido):
-    pass
+    for producto, cantidad in pedido.items():
+        if producto not in inventario or inventario[producto]['Cantidad'] < cantidad:
+            return False
+    return True
 
+
+#obtengo el total de la venta y resto la cantidad del inventario
 def registrar_venta(pedido):
-    pass
+    total_venta = sum(inventario[producto]['Precio venta'] * cantidad for producto, cantidad in pedido.items())
+    for producto, cantidad in pedido.items():
+        inventario[producto]['Cantidad'] -= cantidad
+    print(f'Venta registrada exitosamente. Total de ventas: {total_venta:2f}') #2f para ponerlo en float con 2 decimales
+    
+    
 
 def imprimir_resumen():
-    print("Resumen")
+    while True:
+        opcion = input("""Seleccionar una opcion:\n 1)Resumen de inventario\n 2)Resumen de ventas\n 3)Resumen de costos\n 4)Diferencia entre costo y venta\n 5) Salir\nOpcion: """)
+        
+        if opcion == '1':
+            print("\n-----Resumen de Inventario-----")
+            for producto, info in inventario.items():
+                print(f'''Producto: {producto}, Cantidad: {info['Cantidad']}, Precio de venta: {info['Precio Venta']}
+                      , Costo: {info['Costo']}''')
+                
+        elif opcion == '2':
+            print("\n-----Resumen de Ventas-----")
+            total_ventas = sum(info['Precio Venta']* info['Cantidad'] for info in inventario.items())
+            print(f'Total de ventas: {total_ventas:2f}')
+            
+        elif opcion == '3':
+            print("\n-----Resumen de Costos-----")
+            total_costos = sum(info['Costo']* info['Cantidad'] for info in inventario.items())
+            print(f'Total de costos: {total_costos:2f}')
+            
+        elif opcion == '4':
+            print("\n-----Diferencia entre costo y venta-----")
+            diferencia = sum((info['Precio Venta']- info['Costo'])* info['Cantidad'] for info in inventario.items())
+            print(f'Diferencia entre costo y venta: {diferencia:2f}')
+            
+        elif opcion == '5':
+            break
+        else:
+            print("Opcion invalida, intentelo de nuevo")
 
 #Inicio el sistema
 menu()
