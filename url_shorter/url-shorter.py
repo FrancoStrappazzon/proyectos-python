@@ -14,7 +14,7 @@ def acortar_url(url):
 st.set_page_config(page_title= "Acortador de URL",page_icon = "Imágenes/paliz.jpg", layout="centered")
 
 #Mostrar icono y titulo
-st.image("E:\\FRANCO\\Proyectos_PYTHON\\nuevo_repo\\proyectos-python//url_imagen.jpg",use_column_width=True)
+st.image("E:\FRANCO\\Proyectos_PYTHON\\nuevo_repo\proyectos-python\\url_shorter\\url_imagen.jpg",use_column_width=True)
 st.title("Acortador de URL")
 
 url=st.text_input("Ingrese la URL")
