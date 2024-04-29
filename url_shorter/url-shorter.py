@@ -23,4 +23,4 @@ url=st.text_input("Ingrese la URL")
 if st.button("Generar nueva URL"):
     st.write("URL acortada: ", acortar_url(url))
 
-#Para correr el programa poner en el terminal: streamlit run url-shorter.py
+#Para correr el programa poner en el terminal: streamlit url_shorter\url-shorter.py
