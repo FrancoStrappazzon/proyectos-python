@@ -11,10 +11,16 @@ def acortar_url(url):
     return url_acortada
 
 #Creamos la app web con streamlit
-st.set_page_config(page_title= "Acortador de URL", layout="centered")
-st.image("Imágenes\url_imagen.jpg",use_column_width=True)
+st.set_page_config(page_title= "Acortador de URL",page_icon = "Imágenes/paliz.jpg", layout="centered")
+
+#Mostrar icono y titulo
+st.image("E:\\FRANCO\\Proyectos_PYTHON\\nuevo_repo\\proyectos-python//url_imagen.jpg",use_column_width=True)
 st.title("Acortador de URL")
+
 url=st.text_input("Ingrese la URL")
+
 #Si se aprieta el boton llamo a la funcion para acortar la URL
 if st.button("Generar nueva URL"):
     st.write("URL acortada: ", acortar_url(url))
+
+#Para correr el programa poner en el terminal: streamlit run url-shorter.py
