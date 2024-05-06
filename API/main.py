@@ -29,3 +29,7 @@ def mostrar_libro(id: int):
 @app.post('/Libros')
 def insertar_libro(libro : Libro): 
     return {"message": f'Libro {libro.titulo} ha sido insertado'}
+
+
+
+#PARA EJECUTAR LA API uvicorn main:app --reload
