@@ -29,8 +29,8 @@ if 'amazon' in talk():    #Si yo dije amazon hablando
     #abro el navegador
     webbrowser.open(f'https://www.amazon.es/s?k={text}')
     
-# if 'MercadoLibre' in talk():
-#     maquina.say('Que quieres comprar en mercado libre?')
-#     maquina.runAndWait()
-#     text = talk()
-#     webbrowser.open(f'https://listado.mercadolibre.com.ar/{text}')
+if 'MercadoLibre' in talk():
+     maquina.say('Que quieres comprar en mercado libre?')
+     maquina.runAndWait()
+     text = talk()
+     webbrowser.open(f'https://listado.mercadolibre.com.ar/{text}')
